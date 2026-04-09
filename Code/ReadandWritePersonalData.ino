@@ -31,7 +31,7 @@
 #include <MFRC522.h>     // RFID reader library
 
 // Pin definitions - connect RFID module to these pins
-#define RST_PIN         9    // Reset pin for RFID module
+#define RST_PIN         7    // Reset pin for RFID module
 #define SS_PIN          10   // Slave Select pin for SPI communication
 
 // Data storage configuration - adjust these values as needed
