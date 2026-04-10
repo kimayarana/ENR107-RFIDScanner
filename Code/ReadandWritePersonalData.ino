@@ -53,6 +53,12 @@ MFRC522::MIFARE_Key key;
 // Global variable to store selected operation mode
 char selectedMode = '\0';  // '\0' means no mode selected
 
+void clearSerialBuffer() {
+  while (Serial.available() > 0) {
+    Serial.read();
+  }
+}
+
 void setup() {
   // Initialize serial communication for user interaction
   Serial.begin(9600);
@@ -164,13 +170,15 @@ void writeCardData() {
   String name, id;  // Variables to store user input
   
   Serial.println("\n=== WRITE MODE ===");
-  
+
+  clearSerialBuffer();
   // Get name from user
   Serial.print("Enter name (max " + String(NAME_LENGTH) + " chars): ");
   while (Serial.available() == 0) {}  // Wait for user input
   name = Serial.readStringUntil('\n');
   name.trim();  // Remove extra spaces
-  
+
+  clearSerialBuffer();
   // Get ID from user
   Serial.print("Enter ID (max " + String(ID_LENGTH) + " chars): ");
   while (Serial.available() == 0) {}  // Wait for user input
