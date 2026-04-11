@@ -24,7 +24,8 @@
  *
  *
  * AUTHOR: CircuitDigest/me_RK
- * VERSION: 1.0
+ * MODIFIED: Kimaya Rana (kimayarana)
+ * VERSION: 1.1
  */
 
 #include <SPI.h>         // SPI communication library
