@@ -37,13 +37,9 @@
  * 4. Updates inside count and displays on LCD
  * 5. Provides menu interface for viewing logs and status
  * 
- * PIN CONNECTIONS:
- * - RFID: RST=9, SS=10, MOSI=11, MISO=12, SCK=13
- * - LCD & RTC & EEPROM: SDA=A4, SCL=A5
- * - Buttons: Menu=2, Select=3
- * 
  * AUTHOR: CircuitDigest/me_RK
- * VERSION: 1.0
+ * MODIFIED : Kimaya Rana (kimayarana)
+ * VERSION: 1.1
  */
 
 // Include required libraries
