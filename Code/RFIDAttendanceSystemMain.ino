@@ -71,6 +71,15 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);     // LCD object (address, columns, rows)
 MFRC522::MIFARE_Key key;                 // RFID authentication key
 
 // ===============================================
+// SERIAL BUFFER CLEAR
+// ===============================================
+void clearSerialBuffer() {
+  while (Serial.available() > 0) {
+    Serial.read();
+  }
+}
+
+// ===============================================
 // RFID CARD DATA CONFIGURATION
 // ===============================================
 #define NAME_START_BLOCK 4    // Starting block for name storage on card
@@ -727,31 +736,38 @@ String readCardString(int startBlock, int maxLen) {
 
 // Set RTC time via serial input
 void setRTCTime() {
+  clearSerialBuffer();
   Serial.println(F("\n=== Set RTC Time ==="));
   Serial.println(F("Enter year (e.g. 2024):"));
   while(!Serial.available());
   int year = Serial.parseInt();
-  
+
+  clearSerialBuffer();
   Serial.println(F("Enter month (1-12):"));
   while(!Serial.available());
   int month = Serial.parseInt();
-  
+
+  clearSerialBuffer();
   Serial.println(F("Enter day (1-31):"));
   while(!Serial.available());
   int day = Serial.parseInt();
-  
+
+  clearSerialBuffer();
   Serial.println(F("Enter hour (0-23):"));
   while(!Serial.available());
   int hour = Serial.parseInt();
   
+  clearSerialBuffer();
   Serial.println(F("Enter minute (0-59):"));
   while(!Serial.available());
   int minute = Serial.parseInt();
-  
+
+  clearSerialBuffer();
   Serial.println(F("Enter second (0-59):"));
   while(!Serial.available());
   int second = Serial.parseInt();
-  
+
+  clearSerialBuffer();
   // Update RTC with new time
   rtc.adjust(DateTime(year, month, day, hour, minute, second));
   
