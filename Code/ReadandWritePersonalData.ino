@@ -13,7 +13,7 @@
  * - Student identification cards
  * - Access control systems
  * - Inventory management tags
- * - Personal identification projects
+ * - Personal identification projects 
  * 
  * HOW IT WORKS:
  * 1. User selects mode (Write/Read/Erase) via Serial Monitor
